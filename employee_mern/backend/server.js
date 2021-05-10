@@ -17,7 +17,7 @@ const connection = mongoose.connection;
 connection.once('open',() =>{console.log("mogoDB Connection established successfully")});
 
 const employeesRouter = require('./routes/employees');
-const { Mongoose } = require('mongoose');
+
 app.use('/employees', employeesRouter);
 
 app.listen(port, () =>{
