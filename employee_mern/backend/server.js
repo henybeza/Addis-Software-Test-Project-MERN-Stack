@@ -25,8 +25,7 @@ mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true, useUnifiedTopol
 const connection = mongoose.connection;
 connection.once('open',() =>{console.log("mogoDB Connection established successfully")})
 
+//Time to require and use the API's in the routes folder...
 
-
-
-//Time to use API's
-
+const employeesRouter = require('./routes/employees');
+app.use('/employees',employeesRouter);
