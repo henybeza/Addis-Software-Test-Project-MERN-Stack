@@ -26,6 +26,5 @@ const connection = mongoose.connection;
 connection.once('open',() =>{console.log("mogoDB Connection established successfully")})
 
 //Time to require and use the API's in the routes folder...
-
 const employeesRouter = require('./routes/employees');
 app.use('/employees',employeesRouter);
