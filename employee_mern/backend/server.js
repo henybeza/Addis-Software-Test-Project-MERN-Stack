@@ -15,7 +15,7 @@ app.use(express.json());
 //Making sure that my app (the web server) is 
 //listening to requests and is ready to g ive response...
 app.listen(port, () =>{
-    console.log(`Serverrrr running on port: ${port}`);
+    console.log(`Serverrrr running on port: ${port} !!`);
 });
 
 
@@ -23,7 +23,11 @@ app.listen(port, () =>{
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true, useUnifiedTopology:true});
 const connection = mongoose.connection;
-connection.once('open',() =>{console.log("mogoDB Connection established successfully")})
+connection.once('open',() =>{
+	console.log("MONGO DB Connection established successfully!!!");
+	console.log("I can now start writting the codes for the CRUD Operations or the API's!!!");
+
+})
 
 //Time to require and use the API's in the routes folder...
 const employeesRouter = require('./routes/employees');

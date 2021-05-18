@@ -1,15 +1,15 @@
 //CRUD OPERATIONS
-const router =  require('express').router();
+const router =  require('express').Router();
 const Employees = require('../models/employees.model');
 
-//Creating a new employee record
+//Create a new employee record
 router.route('/add').post((req,res) => {
     const name = req.body.name;
     const dateofbirth = req.body.dateofbirth;
     const gender = req.body.gender;
     const salary = req.body.salary;
 
-    const newEmployee = new Employee({
+    const newEmployee = new Employees({
     	name,
     	dateofbirth,
     	gender,
@@ -30,23 +30,9 @@ router.route('/').get((req,res) =>{
 }); 
 
 
-//Find employees by ID
-router.route('/:id').get((req,res) =>{
-	Employees.findbyId(req.params.id)
-	.then(employee => res.json(employee))
-	.catch(err => res.status(400).json('Error:' + err));
-});
-
-//Delete from the employees record
-router.route('/:id').delete((req,res) =>{
-	Employees.findbyIdAndDelete(req.params.id)
-	.then(() => res.json('Exercise deleted'))
-	.catch(err => res.status(400).json('Error:' + err));
-});
-
 //Update employees record
 router.route('/update/:id').post((req,res) => {
-	Employees.findbyId(req.params.id)
+	Employees.findById(req.params.id)
 	.then(employee =>{
 		employee.name = req.body.name;
 		employee.dateofbirth = req.body.dateofbirth;
@@ -59,6 +45,22 @@ router.route('/update/:id').post((req,res) => {
 	})
 	.catch(err => res.status(400).json('Error: ' +err));
 });
+
+//Delete from the employees record
+router.route('/:id').delete((req,res) =>{
+	Employees.findByIdAndDelete(req.params.id)
+	.then(() => res.json('Exercise deleted'))
+	.catch(err => res.status(400).json('Error:' + err));
+});
+
+
+//Find employees by ID
+router.route('/:id').get((req,res) =>{
+	Employees.findById(req.params.id)
+	.then(employee => res.json(employee))
+	.catch(err => res.status(400).json('Error:' + err));
+});
+
 
 module.exports = router;
 
