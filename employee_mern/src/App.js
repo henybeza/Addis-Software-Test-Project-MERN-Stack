@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+//import container from './components/container';
+
 import './App.css';
 
 function App() {
   return (
+
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Addis Software Test Project - MERN Stack!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-                    Front End
-        </a>
-      </header>
+    <h1>CRUD OPERATIONS ON EMPLOYEES RECORD</h1>
+    <button>CREATE</button>
+    <button>READ</button>
+    <button>UPDATE</button>
+    <button>DELETE</button>
+   
+
+
     </div>
   );
 }
