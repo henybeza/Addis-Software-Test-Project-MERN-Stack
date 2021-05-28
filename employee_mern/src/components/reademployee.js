@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const MainContent= styled.div`
 width:60%;
 margin:auto;
-background-color:orange;
 border-radius:20px;
 height:400px;
 text-align:center;

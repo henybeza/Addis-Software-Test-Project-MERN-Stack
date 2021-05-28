@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+//Styling...
 const MainContent= styled.div`  
 width:60%;
 margin:auto;
-background-color:orange;
 border-radius:20px;
 height:400px;
 text-align:center;
+border:5px solid black;
  
 `;
 
@@ -18,17 +19,8 @@ color:white;
 font-weight:bold;
 `;
 
-const FormWrapper = styled.form`
-    margin: 2vw 0 0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    onSubmit={this.onSubmit};
-
-`;
-
 const Button = styled.button`
-background-color: #4CAF50; /* Green */
+background-color: #84f14e;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -41,6 +33,23 @@ background-color: #4CAF50; /* Green */
 
 `;
 
+const Form = styled.form`
+    width:100%;
+    margin: 2vw 0 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    
+`;
+const Label =styled.label`
+    font-weight:bold;
+
+    color:green;
+`;
+
+//...End of styling
+
+
 export default class createemployee extends Component {
     constructor(props) {
         super(props);
@@ -48,6 +57,7 @@ export default class createemployee extends Component {
         this.onChangeDateOfBirth=this.onChangeDateOfBirth.bind(this);
         this.onChangeGender=this.onChangeGender.bind(this);
         this.onChangeSalary=this.onChangeSalary.bind(this);
+        this.onSubmit=this.onSubmit.bind(this);
 
         this.state={
             name:'',
@@ -60,8 +70,11 @@ export default class createemployee extends Component {
 
     componentDidMount(){
         this.setState({
-            employees:['Test Employee'],
-            name:'Test Employee',
+            employees:['Test Employees'],
+            name:'Henok Bezawork Sahile',
+            dateofbirth: this.state.dateofbirth,
+            gender:"Male",
+            salary:this.state.salary
 
         })
     }
@@ -95,15 +108,27 @@ export default class createemployee extends Component {
 
     onSubmit(e){
         e.preventDefault();
+
         const employee = {
             name:this.state.name,
             dateofbirth:this.state.dateofbirth,
             gender:this.state.gender,
             salary:this.state.salary
         }
-        console.log('Employee added properly...');
+
         console.log(employee);
-        window.location="/read";
+
+        this.setState({
+            name:"",
+            dateofbirth:"",
+            gender:"",
+            salary:""
+        })
+        
+       
+
+
+        //window.location="/";
     }
 
     render(){
@@ -112,33 +137,36 @@ export default class createemployee extends Component {
                     
              <Heading>Create Employee</Heading>
 
-        <FormWrapper>
-            <label >Name</label>
-            <input type="text" name="name" placeholder="Name" 
-            value={this.state.name} onChange={this.onChangeName}/>
+        <Form onSubmit={this.onSubmit}>
 
-            <label>DateOfBirth</label>
-            <DatePicker 
-            selected={this.state.dateofbirth} 
-            onChange={this.onChangeDateOfBirth} 
-            id="dob"/>
-
-            <label >Gender</label>
-            <input type="text" name="gender" placeholder="Gender" 
-            value={this.state.gender} onChange={this.onChangeGender}/>
-
-
-            <label >Salary</label>
-            <input type="text" name="salary" placeholder="Salary" 
-            value={this.state.salary} onChange={this.onChangeSalary}/>
+            <Label >Name</Label>
+                <input type="text" name="name" placeholder="Name" 
+                    value={this.state.name} onChange={this.onChangeName}/>
 
 
 
-            <Button>CREATE</Button>          
+            <Label>DateOfBirth</Label>
+                <DatePicker 
+                    selected={this.state.dateofbirth} 
+                    onChange={this.onChangeDateOfBirth} 
+                    />
+                   
 
-       
 
-        </FormWrapper>   
+            <Label >Gender</Label>
+                <input type="text" name="gender" placeholder="Gender" 
+                    value={this.state.gender} onChange={this.onChangeGender}/>
+
+
+
+            <Label >Salary</Label>
+                <input type="text" name="salary" placeholder="Salary" 
+                    value={this.state.salary} onChange={this.onChangeSalary}/>
+
+            <Button >CREATE</Button>               
+
+
+        </Form>   
                     
     </MainContent>
         )

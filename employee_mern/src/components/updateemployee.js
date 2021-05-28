@@ -6,11 +6,11 @@ import "react-datepicker/dist/react-datepicker.css";
 const MainContent= styled.div`  
 width:60%;
 margin:auto;
-background-color:orange;
 border-radius:20px;
 height:400px;
 text-align:center;
- 
+ border:5px solid black;
+
 `;
 
 const Heading = styled.h1`
@@ -36,10 +36,16 @@ background-color: #4CAF50; /* Green */
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  background-color:blue;
+  background-color:#9a4ef1;
    border-radius:10px;
    margin-top:10px;
 
+`;
+
+const Label =styled.label`
+    font-weight:bold;
+    
+    color:#9a4ef1;
 `;
 
 export default class updateemployee extends Component {
@@ -62,7 +68,10 @@ export default class updateemployee extends Component {
     componentDidMount(){
         this.setState({
             employees:['Test Employee'],
-            name:'Test Employee',
+            name:'Henok Bezawork Sahile',
+            dateofbirth: this.state.dateofbirth,
+            gender:"Male",
+            salary:this.state.salary
 
         })
     }
@@ -116,22 +125,22 @@ export default class updateemployee extends Component {
         <FormWrapper>
          <input type="text" name="name" placeholder="Employee ID"/>
 
-            <label >Name</label>
+            <Label >Name</Label>
             <input type="text" name="name" placeholder="Name" 
             value={this.state.name} onChange={this.onChangeName}/>
 
-            <label>DateOfBirth</label>
+            <Label>DateOfBirth</Label>
             <DatePicker 
             selected={this.state.dateofbirth} 
             onChange={this.onChangeDateOfBirth} 
             id="dob"/>
 
-            <label >Gender</label>
+            <Label >Gender</Label>
             <input type="text" name="gender" placeholder="Gender" 
             value={this.state.gender} onChange={this.onChangeGender}/>
 
 
-            <label >Salary</label>
+            <Label >Salary</Label>
             <input type="text" name="salary" placeholder="Salary" 
             value={this.state.salary} onChange={this.onChangeSalary}/>
 
