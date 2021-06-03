@@ -6,7 +6,7 @@ margin:auto;
 border-radius:20px;
 height:400px;
 text-align:center;
-border:5px solid black;
+
 
  
 `;
@@ -50,7 +50,7 @@ export default class deleteemployee extends Component {
              <FormWrapper>
              <input type="text" name="name" placeholder="Employee ID"/>
 
-             <Button>DELETE</Button>
+             <Button>DELETE EMPLOYEE </Button>
          </FormWrapper>  
              
                 

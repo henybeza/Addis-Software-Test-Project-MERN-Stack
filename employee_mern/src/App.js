@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
-//import 'bootstrap/dist/css/bootstrap.min.css';
+//import {connect} from 'react-redux';
+
 import Navbar from "./components/navbar";
 
 import Home from './components/home';
@@ -23,4 +24,27 @@ function App() {
      </Router>
   );
 }
-export default App;
+
+export default App
+/*
+
+const mapStateToProps = state =>{
+    return{
+        //....
+    }
+}
+
+const mapDispatchToProps = dispatch =>{
+    return{
+        onCreateEmployee:()=>dispatch({type:"CREATE_EMPLOYEE",                          value:""});
+        //onReadEmployee:()=>dispatch({type:"READ_EMPLOYEE", value:""});
+        //onUpdateEmployee:()=>dispatch({type:"UPDATE_EMPLOYEE", value:""});
+        //onDelteEmployee:()=>dispatch({type:"DELETE_EMPLOYEE", value:""});
+    
+    };
+}
+
+export default connect(mapStateToProps,
+                      mapDispatchToProps
+                      )(App);
+*/

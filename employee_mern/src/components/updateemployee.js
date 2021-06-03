@@ -9,7 +9,7 @@ margin:auto;
 border-radius:20px;
 height:400px;
 text-align:center;
- border:5px solid black;
+
 
 `;
 
@@ -68,7 +68,7 @@ export default class updateemployee extends Component {
     componentDidMount(){
         this.setState({
             employees:['Test Employee'],
-            name:'Henok Bezawork Sahile',
+            name:this.state.name,
             dateofbirth: this.state.dateofbirth,
             gender:"Male",
             salary:this.state.salary
@@ -129,7 +129,7 @@ export default class updateemployee extends Component {
             <input type="text" name="name" placeholder="Name" 
             value={this.state.name} onChange={this.onChangeName}/>
 
-            <Label>DateOfBirth</Label>
+            <Label>Date Of Birth</Label>
             <DatePicker 
             selected={this.state.dateofbirth} 
             onChange={this.onChangeDateOfBirth} 
@@ -146,7 +146,7 @@ export default class updateemployee extends Component {
 
 
 
-            <Button>UPDATE</Button>          
+            <Button>UPDATE EMPLOYEE</Button>          
 
        
 

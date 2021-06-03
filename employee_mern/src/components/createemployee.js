@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+//Importing the CREATE_EMPLOYEE action
+import {createEmployee} from '../actions';
+
+
 //Styling...
 const MainContent= styled.div`  
 width:60%;
@@ -10,7 +14,7 @@ margin:auto;
 border-radius:20px;
 height:400px;
 text-align:center;
-border:5px solid black;
+
  
 `;
 
@@ -64,14 +68,12 @@ export default class createemployee extends Component {
             dateofbirth:new Date(),
             gender:'',
             salary:'',
-            employees:[]
-        }
+                    }
     }
 
     componentDidMount(){
         this.setState({
-            employees:['Test Employees'],
-            name:'Henok Bezawork Sahile',
+             name:this.state.name,
             dateofbirth: this.state.dateofbirth,
             gender:"Male",
             salary:this.state.salary
@@ -107,6 +109,7 @@ export default class createemployee extends Component {
 
 
     onSubmit(e){
+
         e.preventDefault();
 
         const employee = {
@@ -115,7 +118,12 @@ export default class createemployee extends Component {
             gender:this.state.gender,
             salary:this.state.salary
         }
-
+        /*Using redux and redux-saga*/
+        //Now, dispatch an action to the store...
+        //use redux saga middleware to make API calls based on the action type...
+        //then use reducer/redux to update the state based on the responses from the API...
+        //...finally, the view will be re-rendered because the state is updated with a new data...
+         
         console.log(employee);
 
         this.setState({
@@ -124,12 +132,18 @@ export default class createemployee extends Component {
             gender:"",
             salary:""
         })
-        
-       
 
+        console.log("Employee added successfully!")
+        //window.location="/read";
 
-        //window.location="/";
     }
+
+
+
+
+
+
+
 
     render(){
         return (
@@ -140,37 +154,39 @@ export default class createemployee extends Component {
         <Form onSubmit={this.onSubmit}>
 
             <Label >Name</Label>
-                <input type="text" name="name" placeholder="Name" 
-                    value={this.state.name} onChange={this.onChangeName}/>
+                <input type="text" placeholder="Name" 
+                    onChange={this.onChangeName} value={this.state.name} />
 
 
-
-            <Label>DateOfBirth</Label>
+            <Label>Date Of Birth</Label>
                 <DatePicker 
                     selected={this.state.dateofbirth} 
                     onChange={this.onChangeDateOfBirth} 
-                    />
+                                    />
                    
 
-
             <Label >Gender</Label>
-                <input type="text" name="gender" placeholder="Gender" 
-                    value={this.state.gender} onChange={this.onChangeGender}/>
-
+                <input type="text"  placeholder="Gender" 
+                    onChange={this.onChangeGender} value={this.state.gender} />
 
 
             <Label >Salary</Label>
-                <input type="text" name="salary" placeholder="Salary" 
-                    value={this.state.salary} onChange={this.onChangeSalary}/>
+                <input type="text" placeholder="Salary" 
+                    onChange={this.onChangeSalary} value={this.state.salary} />
 
-            <Button >CREATE</Button>               
-
+        <Button onClick={createEmployee}>CREATE EMPLOYEE</Button>
 
         </Form>   
                     
     </MainContent>
-        )
+        );
 
     }
   
 }
+
+
+
+
+
+

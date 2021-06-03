@@ -1,47 +1,99 @@
-import React from 'react';
+import React, { useState } from "react";
+import styled from "styled-components";
 import {Link} from 'react-router-dom';
-import styled from 'styled-components';
-
-const MainContent= styled.div`
-width:60%;
-margin:auto;
-border-radius:20px;
-height:auto;
-text-align:center;
- 
-`;
-const Heading = styled.h1`
-	
-	font-weight:bold;
-
-	`;
-const Button = styled.button`
-
-  border: none;
-  font-weight:bold;
-  padding: 15px 32px;
+//Styling the Navigation bar
+const MenuLink = styled.a`
+  padding: 1rem 2rem;
+  cursor: pointer;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-   border-radius:10px;
-   padding:auto;
-   
-
+  color: #67bc98;
+  transition: all 0.3s ease-in;
+  font-size: 0.9rem;
+font-weight:bold;
+  &:hover {
+    color: #7b7fda;
+  }
 `;
 
+const Nav = styled.div`
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
 
-export default function navbar() {
-    return (
-        <MainContent>
-        <Heading>Addis Software Test Project - 
-        MERN Stack for managing Employee Records!!!</Heading>
-        <Button> <Link to="/create">CREATE</Link></Button>
-         <Button><Link to="/read">READ</Link></Button>
-         <Button><Link to="/update/:id">UPDATE</Link></Button>
-         <Button> <Link to="/delete/:id">DELETE</Link></Button>       
-        </MainContent>
-    )
-}
+const Logo = styled.a`
+  padding: 1rem 0;
+  color: #7b7fda;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.7rem;
+  span {
+    font-weight: 300;
+    font-size: 1.3rem;
+  }
+`;
 
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+    width: 100%;
+  }
+`;
+
+const Hamburger = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  span {
+    height: 2px;
+    width: 25px;
+    background: #7b7fda;
+    margin-bottom: 4px;
+    border-radius: 5px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
+//End of styling the navigation bar
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Nav>
+      <Logo href="">
+        Henny<span>Tech</span>
+      </Logo>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
+      </Hamburger>
+      <Menu isOpen={isOpen}>
+        <MenuLink ><Link to="/">HOME</Link></MenuLink>
+        <MenuLink ><Link to="/create">CREATE </Link></MenuLink>
+        <MenuLink ><Link to="/read">READ</Link></MenuLink>
+        <MenuLink ><Link to="/update/:id">UPDATE</Link></MenuLink>
+        <MenuLink ><Link to="/delete/:id">DELETE</Link></MenuLink>
+      </Menu>
+    </Nav>
+  );
+};
+
+export default Navbar;
 
