@@ -77,7 +77,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Logo href="">
-        Henny<span>Tech</span>
+        Employees<span>Record</span>
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -85,11 +85,10 @@ const Navbar = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink ><Link to="/">HOME</Link></MenuLink>
-        <MenuLink ><Link to="/create">CREATE </Link></MenuLink>
-        <MenuLink ><Link to="/read">READ</Link></MenuLink>
-        <MenuLink ><Link to="/update/:id">UPDATE</Link></MenuLink>
-        <MenuLink ><Link to="/delete/:id">DELETE</Link></MenuLink>
+     
+        <MenuLink ><Link to="/create">CREATE NEW EMPLOYEE </Link></MenuLink>
+        <MenuLink ><Link to="/read">LIST OF EMPLOYEES</Link></MenuLink>
+      
       </Menu>
     </Nav>
   );

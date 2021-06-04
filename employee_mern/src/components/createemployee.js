@@ -174,7 +174,7 @@ export default class createemployee extends Component {
                 <input type="text" placeholder="Salary" 
                     onChange={this.onChangeSalary} value={this.state.salary} />
 
-        <Button onClick={createEmployee}>CREATE EMPLOYEE</Button>
+        <Button onClick={createEmployee}>Submit</Button>
 
         </Form>   
                     
