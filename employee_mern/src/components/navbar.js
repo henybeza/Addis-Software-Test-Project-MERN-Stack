@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
+//import {readEmployee} from '../actions';
 //Styling the Navigation bar
 const MenuLink = styled.a`
   padding: 1rem 2rem;
@@ -86,8 +87,9 @@ const Navbar = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
      
-        <MenuLink ><Link to="/create">CREATE NEW EMPLOYEE </Link></MenuLink>
-        <MenuLink ><Link to="/read">LIST OF EMPLOYEES</Link></MenuLink>
+      <MenuLink ><Link to="/" >LIST OF EMPLOYEES</Link></MenuLink>
+        <MenuLink ><Link to="/create" >CREATE EMPLOYEES  </Link></MenuLink>
+        
       
       </Menu>
     </Nav>

@@ -1,4 +1,4 @@
-//CRUD OPERATIONS
+//CRUD OPERATIONS ON EMPLOYEES RECORD
 const router =  require('express').Router();
 const Employees = require('../models/employees.model');
 
@@ -49,7 +49,7 @@ router.route('/update/:id').post((req,res) => {
 //Delete from the employees record
 router.route('/:id').delete((req,res) =>{
 	Employees.findByIdAndDelete(req.params.id)
-	.then(() => res.json('Exercise deleted'))
+	.then(() => res.json('Employee deleted'))
 	.catch(err => res.status(400).json('Error:' + err));
 });
 
@@ -66,3 +66,4 @@ module.exports = router;
 
 
 
+ 

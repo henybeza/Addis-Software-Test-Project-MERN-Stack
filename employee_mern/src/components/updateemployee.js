@@ -9,7 +9,7 @@ import axios from "axios";
 //import {createEmployee} from '../actions';
 
 
-class createemployee extends Component {
+class updateemployee extends Component {
   constructor(props) {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
@@ -23,21 +23,29 @@ class createemployee extends Component {
       dateofbirth: new Date(),
       gender: "",
       salary: "",
-      employees: [],
+      //employees: [],
     };
   }
 
+
   componentDidMount() {
-    axios.get('http://localhost:5000/employees/')
-    .then(response => {
-      if(response.data.length > 0){
-        this.setState({
-      //employees:response.data.map(employee => employee.name),
-      name: response.data[0].name,      
-         });
-      }
-    })
+    axios.get('http://localhost:5000/employees/'+ this.props.match.params.id)
+        .then(response => {
+          this.setState({
+            name:response.data.name,
+            dateofbirth: new Date (response.data.dateofbirth),
+            gender:response.data.gender,
+            salary:response.data.salary,
+            
+          })
+        })
+        .catch(
+          function (error){
+            console.log(error);
+          }
+          )
   }
+
 
 
   onChangeName(e) {
@@ -76,12 +84,18 @@ class createemployee extends Component {
 
     //console.log(employee);
     axios
-      .post("http://localhost:5000/employees/add", employee)
+      .post('http://localhost:5000/employees/update/'+this.props.match.params._id, employee)
       .then((res) => console.log(res.data));
         
       window.location = "/";
 
-   
+    //Dispatch CREATE_EMPLOYEE action from here
+    //this.props.dispatch({
+    //  type:"CREATE_EMPLOYEE",
+
+    //})
+
+    //End of dispatching actions from the component
 
   }
 
@@ -89,18 +103,16 @@ class createemployee extends Component {
   render() {
     return (
       <MainContent>
-        <Heading>Create Employee</Heading>
+        <Heading>Update Employee</Heading>
 
           <Form onSubmit={this.onSubmit}>
             <Label>Name</Label>
             <input
                 type="text"
-                placeholder="Full Name"
+                placeholder="Name"
                 onChange={this.onChangeName}
                 value={this.state.name}
               />
-
-
 
             <Label>Date Of Birth</Label>
               <DatePicker
@@ -126,13 +138,15 @@ class createemployee extends Component {
           
             <Button>Submit</Button>       
           </Form>
-          <MyHeading>Addis Software Test Project</MyHeading>
+
+           <MyHeading>Addis Software Test Project</MyHeading>
+
       </MainContent>
     );
   }
 }
 
-export default createemployee;
+export default updateemployee;
 
 
 

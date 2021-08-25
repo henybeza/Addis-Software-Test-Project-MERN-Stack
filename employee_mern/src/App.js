@@ -1,48 +1,22 @@
-import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 //import {connect} from 'react-redux';
 
 import Navbar from "./components/navbar";
-
-
-import CreateEmployee from "./components/createemployee";
-import ReadEmployee from "./components/reademployee";
-
-
+import CreateEmployee from "./components/createemployee";//CREATE
+import ReadEmployees from "./components/reademployees";//READ
+import UpdateEmployee from "./components/updateemployee";//UPDATE
 
 function App() {
   return (
     <Router>
-          <Navbar />
-          <br />
-        
-          <Route path="/create" component={CreateEmployee }/>
-          <Route path="/read"  component={ReadEmployee} />
-       
-     </Router>
+      <Navbar />
+      <br />
+      <Route path="/create" component={CreateEmployee} />
+      <Route path="/" exact component={ReadEmployees} />
+      <Route path="/update/"   component={UpdateEmployee} />
+    </Router>
   );
 }
 
-export default App
-/*
-
-const mapStateToProps = state =>{
-    return{
-        //....
-    }
-}
-
-const mapDispatchToProps = dispatch =>{
-    return{
-        onCreateEmployee:()=>dispatch({type:"CREATE_EMPLOYEE",                          value:""});
-        //onReadEmployee:()=>dispatch({type:"READ_EMPLOYEE", value:""});
-        //onUpdateEmployee:()=>dispatch({type:"UPDATE_EMPLOYEE", value:""});
-        //onDelteEmployee:()=>dispatch({type:"DELETE_EMPLOYEE", value:""});
-    
-    };
-}
-
-export default connect(mapStateToProps,
-                      mapDispatchToProps
-                      )(App);
-*/
+export default App;
