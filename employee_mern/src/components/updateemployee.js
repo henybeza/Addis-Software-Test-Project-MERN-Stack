@@ -82,9 +82,9 @@ class updateemployee extends Component {
       salary: this.state.salary,
     };
 
-    //console.log(employee);
+    console.log(employee);
     axios
-      .post('http://localhost:5000/employees/update/'+this.props.match.params._id, employee)
+      .post('http://localhost:5000/employees/update/'+this.props.match.params.id, employee)
       .then((res) => console.log(res.data));
         
       window.location = "/";

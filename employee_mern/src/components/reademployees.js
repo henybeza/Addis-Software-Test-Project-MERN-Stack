@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 //Making use of functional components
-//for a single component
+//for a single employee component
 const Employee = props =>
    (
             <tr>

@@ -23,7 +23,7 @@ class createemployee extends Component {
       dateofbirth: new Date(),
       gender: "",
       salary: "",
-      employees: [],
+     // employees: [],
     };
   }
 
@@ -33,7 +33,8 @@ class createemployee extends Component {
       if(response.data.length > 0){
         this.setState({
       //employees:response.data.map(employee => employee.name),
-      name: response.data[0].name,      
+      name: response.data[0].name,
+
          });
       }
     })
@@ -74,7 +75,7 @@ class createemployee extends Component {
       salary: this.state.salary,
     };
 
-    //console.log(employee);
+    console.log(employee);
     axios
       .post("http://localhost:5000/employees/add", employee)
       .then((res) => console.log(res.data));
