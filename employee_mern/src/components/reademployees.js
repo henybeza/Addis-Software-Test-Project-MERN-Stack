@@ -67,7 +67,12 @@ employeeList(){
         return (
             <MainContent>
               <div>
-                  <Heading>List of Employees</Heading>
+                     <Heading>List of Employees</Heading>
+
+                      <input type="search" id="search" name="search"/>
+                      <input type="button" value="Search"/>
+                      <br/><br/>
+
                     <Table>
 
                       <thead>
