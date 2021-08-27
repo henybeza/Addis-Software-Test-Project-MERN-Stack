@@ -33,7 +33,7 @@ class createemployee extends Component {
       if(response.data.length > 0){
         this.setState({
       //employees:response.data.map(employee => employee.name),
-      name: response.data[0].name,
+      name: response.data[1].name,
 
          });
       }
@@ -90,12 +90,12 @@ class createemployee extends Component {
   render() {
     return (
       <MainContent>
-        <Heading>Create Employee</Heading>
+        <Heading>Create New Employee</Heading>
 
           <Form onSubmit={this.onSubmit}>
             <Label>Name</Label>
             <input
-                type="text"
+                type="text" required
                 placeholder="Full Name"
                 onChange={this.onChangeName}
                 value={this.state.name}
@@ -111,7 +111,7 @@ class createemployee extends Component {
           
             <Label>Gender</Label>
               <input
-                type="text"
+                type="text" required
                 placeholder="Gender"
                 onChange={this.onChangeGender}
                 value={this.state.gender}
@@ -119,7 +119,7 @@ class createemployee extends Component {
           
             <Label>Salary</Label>
               <input
-                type="text"
+                type="text" required
                 placeholder="Salary"
                 onChange={this.onChangeSalary}
                 value={this.state.salary}

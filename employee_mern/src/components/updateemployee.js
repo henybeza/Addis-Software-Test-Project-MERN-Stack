@@ -33,10 +33,13 @@ class createemployee extends Component {
       name: response.data.name,
       dateofbirth:response.data.dateofbirth,
       gender:response.data.gender,
-      salary:response.data.salary,
+      salary:response.data.salary
 
-         });
+         })
       
+    })
+    .catch(function(error){
+      console.log(error);
     })
   }
 
@@ -77,13 +80,10 @@ class createemployee extends Component {
 
     console.log(employee);
     axios
-      .post('http://localhost:5000/employees/update/ '+ this.props.match.params.id, employee)
+      .post('http://localhost:5000/employees/update/'+ this.props.match.params.id, employee)
       .then((res) => console.log(res.data));
         
       window.location = "/";
-
-   
-
   }
 
 
