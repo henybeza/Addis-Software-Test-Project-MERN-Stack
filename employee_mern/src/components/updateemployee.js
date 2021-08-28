@@ -9,7 +9,7 @@ import axios from "axios";
 //import {createEmployee} from '../actions';
 
 
-class createemployee extends Component {
+class updateemployee extends Component {
   constructor(props) {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
@@ -19,28 +19,30 @@ class createemployee extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
+   
       name: "",
       dateofbirth: new Date(),
       gender: "",
       salary: "",
-        };
+    
+    };
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/employees/'+ this.props.match.params.id)
+    axios.get('http://localhost:5000/employees/' + this.props.match.params.id)
     .then(response => {
-        this.setState({
+      this.setState({
+        
       name: response.data.name,
-      dateofbirth:response.data.dateofbirth,
+      dateofbirth:new Date(response.data.dateofbirth),
       gender:response.data.gender,
-      salary:response.data.salary
+      salary:response.data.setState
 
-         })
+         });
+         
       
     })
-    .catch(function(error){
-      console.log(error);
-    })
+    .catch(function(error){console.log(error);})
   }
 
 
@@ -80,10 +82,13 @@ class createemployee extends Component {
 
     console.log(employee);
     axios
-      .post('http://localhost:5000/employees/update/'+ this.props.match.params.id, employee)
+      .post('http://localhost:5000/employees/update/'+this.props.match.params.id, employee)
       .then((res) => console.log(res.data));
         
       window.location = "/";
+
+   
+
   }
 
 
@@ -95,7 +100,7 @@ class createemployee extends Component {
           <Form onSubmit={this.onSubmit}>
             <Label>Name</Label>
             <input
-                type="text"
+                type="text" required
                 placeholder="Full Name"
                 onChange={this.onChangeName}
                 value={this.state.name}
@@ -111,7 +116,7 @@ class createemployee extends Component {
           
             <Label>Gender</Label>
               <input
-                type="text"
+                type="text" required
                 placeholder="Gender"
                 onChange={this.onChangeGender}
                 value={this.state.gender}
@@ -119,7 +124,7 @@ class createemployee extends Component {
           
             <Label>Salary</Label>
               <input
-                type="text"
+                type="text" required
                 placeholder="Salary"
                 onChange={this.onChangeSalary}
                 value={this.state.salary}
@@ -133,7 +138,7 @@ class createemployee extends Component {
   }
 }
 
-export default createemployee;
+export default updateemployee;
 
 
 

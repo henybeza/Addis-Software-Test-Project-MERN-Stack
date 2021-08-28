@@ -14,7 +14,7 @@ const Employee = props =>
                 <td>{props.employee.salary}</td>
 
                 <td>
-                  <Link to={"/update/"+props.employee._id}>Update</Link> | 
+                  <Link to={"/update/"+ props.employee._id}>Update</Link> | 
                   <Button onClick={() => {props.deleteEmployee(props.employee._id)}}>Delete</Button>
                 </td>
 
