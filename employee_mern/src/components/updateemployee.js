@@ -19,7 +19,7 @@ class updateemployee extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-   
+      employee: [],
       name: "",
       dateofbirth: new Date(),
       gender: "",
@@ -32,17 +32,17 @@ class updateemployee extends Component {
     axios.get('http://localhost:5000/employees/' + this.props.match.params.id)
     .then(response => {
       this.setState({
-        
+      employee:response.data,
       name: response.data.name,
       dateofbirth:new Date(response.data.dateofbirth),
       gender:response.data.gender,
       salary:response.data.setState
 
-         });
-         
-      
+         })        
     })
     .catch(function(error){console.log(error);})
+
+
   }
 
 
@@ -83,11 +83,9 @@ class updateemployee extends Component {
     console.log(employee);
     axios
       .post('http://localhost:5000/employees/update/'+this.props.match.params.id, employee)
-      .then((res) => console.log(res.data));
+      .then(res => console.log(res.data));
         
       window.location = "/";
-
-   
 
   }
 

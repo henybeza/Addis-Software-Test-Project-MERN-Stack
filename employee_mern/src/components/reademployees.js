@@ -15,7 +15,7 @@ const Employee = props =>
 
                 <td>
                   <Link to={"/update/"+ props.employee._id}>Update</Link> | 
-                  <Button onClick={() => {props.deleteEmployee(props.employee._id)}}>Delete</Button>
+               <Button onClick={() => {props.deleteEmployee(props.employee._id)}}>Delete</Button>
                 </td>
 
             </tr>
@@ -30,9 +30,7 @@ export default class reademployees extends Component {
 
   this.deleteEmployee = this.deleteEmployee.bind(this);
 
-  this.state = {
-    employees: []
-  };
+  this.state = {employees: []};
 
 }
 
