@@ -29,18 +29,28 @@ class updateemployee extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/employees/' + this.props.match.params.id)
-    .then(response => {
+    axios.get('http://localhost:5000/employees/'+ this.props.match.params.id)
+    .then(response =>{
       this.setState({
-      employee:response.data,
-      name: response.data.name,
-      dateofbirth:new Date(response.data.dateofbirth),
-      gender:response.data.gender,
-      salary:response.data.setState
-
-         })        
+        name:response.data.name,
+        dateofbirth: new Date (response.data.dateofbirth),
+        gender:response.data.gender,
+        salary:response.data.salary
+      })
     })
     .catch(function(error){console.log(error);})
+
+    axios.get('http://localhost:5000/employees/')
+    .then(response => {
+       if(response.data.length > 0){
+            this.setState({
+          employee:response.data,
+
+             })    
+       }
+          
+    })
+   
 
 
   }
