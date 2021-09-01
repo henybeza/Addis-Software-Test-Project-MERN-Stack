@@ -14,7 +14,7 @@ function App() {
       <br />
       <Route path="/create" component={CreateEmployee} />
       <Route path="/" exact component={ReadEmployees} />
-      <Route path="/update/"   component={UpdateEmployee} />
+      <Route path="/update/:id/"   component={UpdateEmployee} />
     </Router>
   );
 }

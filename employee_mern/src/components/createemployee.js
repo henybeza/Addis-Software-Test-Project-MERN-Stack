@@ -32,11 +32,13 @@ class createemployee extends Component {
     .then(response => {
       if(response.data.length > 0){
         this.setState({
-      //employees:response.data.map(employee => employee.name),
+     // employees:response.data.map(employee => employee.name),
       name: response.data[1].name,
+
 
          });
       }
+       //console.log(response.data);
     })
   }
 

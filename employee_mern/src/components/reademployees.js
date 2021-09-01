@@ -30,7 +30,9 @@ export default class reademployees extends Component {
 
   this.deleteEmployee = this.deleteEmployee.bind(this);
 
-  this.state = {employees: []};
+  this.state = {
+    employees: []
+  };
 
 }
 

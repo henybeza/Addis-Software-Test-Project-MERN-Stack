@@ -3,10 +3,6 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-//import {connect} from 'react-redux';
-
-//Importing the CREATE_EMPLOYEE action
-//import {createEmployee} from '../actions';
 
 
 class updateemployee extends Component {
@@ -19,40 +15,27 @@ class updateemployee extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      employee: [],
+      //employee: [],
       name: "",
       dateofbirth: new Date(),
       gender: "",
-      salary: "",
+      salary: ""
     
     };
   }
 
-  componentDidMount() {
+componentDidMount() {
     axios.get('http://localhost:5000/employees/'+ this.props.match.params.id)
-    .then(response =>{
-      this.setState({
-        name:response.data.name,
-        dateofbirth: new Date (response.data.dateofbirth),
-        gender:response.data.gender,
-        salary:response.data.salary
-      })
-    })
-    .catch(function(error){console.log(error);})
-
-    axios.get('http://localhost:5000/employees/')
     .then(response => {
-       if(response.data.length > 0){
             this.setState({
-          employee:response.data,
-
-             })    
-       }
-          
+      name: response.data.name,
+      dateofbirth:new Date(response.data.dateofbirth),
+      gender:response.data.gender,
+      salary:response.data.salary
+         });
+      
+      console.log(response.data);
     })
-   
-
-
   }
 
 
@@ -92,7 +75,7 @@ class updateemployee extends Component {
 
     console.log(employee);
     axios
-      .post('http://localhost:5000/employees/update/'+this.props.match.params.id, employee)
+      .post('http://localhost:5000/employees/update/'+ this.props.match.params.id, employee)
       .then(res => console.log(res.data));
         
       window.location = "/";
