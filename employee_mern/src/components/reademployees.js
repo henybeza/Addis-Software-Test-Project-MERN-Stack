@@ -131,6 +131,10 @@ border-radius:20px
 
 const Tablecontent = styled.tr`
  background:#e9f4f5;
+ :hover {
+  background:#a40af7;
+  color:white;
+ }
 
 
 `;
