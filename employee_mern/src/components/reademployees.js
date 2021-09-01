@@ -7,7 +7,7 @@ import axios from 'axios';
 //for a single employee component
 const Employee = props =>
    (
-            <tr>
+           <tr>
                 <td>{props.employee.name}</td>
                 <td>{props.employee.dateofbirth.substring(0,10)}</td>
                 <td>{props.employee.gender}</td>
@@ -18,8 +18,7 @@ const Employee = props =>
                <Button onClick={() => {props.deleteEmployee(props.employee._id)}}>Delete</Button>
                 </td>
 
-            </tr>
-          )
+            </tr>          )
 
 
 
@@ -129,6 +128,8 @@ padding:20px;
 margin:auto;
 border-radius:20px
 `;
+
+
 
 const Button = styled.button`
 

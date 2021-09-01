@@ -31,15 +31,11 @@ class createemployee extends Component {
     axios.get('http://localhost:5000/employees/')
     .then(response => {
       if(response.data.length > 0){
-        this.setState({
-     // employees:response.data.map(employee => employee.name),
-      name: response.data[1].name,
+   
+        console.log(response.data);
 
-
-         });
       }
-       //console.log(response.data);
-    })
+           })
   }
 
 
