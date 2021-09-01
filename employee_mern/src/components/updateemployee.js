@@ -140,13 +140,13 @@ margin:auto;
 border-radius:100px;
 height:500px;
 text-align:center;
-background:#8FF60C;
+background:#3392FF;
 text-align:center;
 
 `;
 
 const Heading = styled.h1`
-  color: black;
+  color: white;
   font-weight: bold;
   font-size:50px;
    font-family:Comic Sans MS;
