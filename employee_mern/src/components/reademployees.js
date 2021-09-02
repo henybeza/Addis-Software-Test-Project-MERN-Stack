@@ -39,9 +39,13 @@ componentDidMount(){
   axios.get('http://localhost:5000/employees/')
   .then(response =>{
     this.setState({employees:response.data})
-  })
+     console.log(response.data);
+       })
   .catch((error) =>{console.log(error);
+
+
   })
+
 }
 
 deleteEmployee(id){
@@ -68,10 +72,7 @@ employeeList(){
               <div>
                      <Heading>List of Employees</Heading>
 
-                      <input type="search" id="search" name="search"/>
-                      <input type="button" value="Search"/>
-                      <br/><br/>
-
+                     
                     <Table>
 
                       <thead>
@@ -88,7 +89,9 @@ employeeList(){
                         {this.employeeList()}
                       </tbody>
 
+                
                     </Table>
+                    
               </div>  
                 <MyHeading>Addis Software Test Project</MyHeading>
     
@@ -146,7 +149,6 @@ const Button = styled.button`
   background:tomato;
   width:auto;
 `;
-
 
 const MyHeading = styled.h1`
   color:white;
