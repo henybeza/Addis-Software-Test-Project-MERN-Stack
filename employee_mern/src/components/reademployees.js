@@ -76,6 +76,7 @@ employeeList(){
                     <Table>
 
                       <thead>
+                        
                         <tr>
                           <th>Name</th>
                           <th>Date Of Birth</th>
