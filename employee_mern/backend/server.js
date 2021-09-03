@@ -37,12 +37,12 @@ connection.once('open',() =>{
 const employeesRouter = require('./routes/employees');
 app.use('/employees', employeesRouter);
 
-//Serving STATIC ASSETS if in production...
+//Serving STATIC ASSETS or the build folder if in production...
  if(process.env.NODE_ENV ==='production'){
  	//Set static folder
- 	app.use(express.static('/build'));
+ 	app.use(express.static('build'));
  	app.get('*',(req,res) =>{
- 		res.sendFile(path.resolve(__dirname,'build','index.html'));
+ 		res.sendFile(path.resolve(__dirname, 'build','index.html'));
  	});
  }
 
