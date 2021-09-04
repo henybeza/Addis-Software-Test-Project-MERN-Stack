@@ -42,10 +42,7 @@ componentDidMount(){
      console.log(response.data);
        })
   .catch((error) =>{console.log(error);
-
-
   })
-
 }
 
 deleteEmployee(id){
@@ -70,27 +67,21 @@ employeeList(){
         return (
             <MainContent>
               <div>
-                     <Heading>List of Employees</Heading>
-
-                     
+                     <Heading>List of Employees</Heading>                   
                     <Table>
+                          <thead>             
+                            <tr>
+                              <th>Name</th>
+                              <th>Date Of Birth</th>
+                              <th>Gender</th>
+                              <th>Salary</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
 
-                      <thead>
-                        
-                        <tr>
-                          <th>Name</th>
-                          <th>Date Of Birth</th>
-                          <th>Gender</th>
-                          <th>Salary</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        {this.employeeList()}
-                      </tbody>
-
-                
+                          <tbody>
+                            {this.employeeList()}
+                          </tbody>
                     </Table>
                     
               </div>  
