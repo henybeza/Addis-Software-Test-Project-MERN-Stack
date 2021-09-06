@@ -37,6 +37,8 @@ connection.once('open',() =>{
 const employeesRouter = require('./routes/employees');
 app.use('/employees', employeesRouter);
 
+
+
 //Serving STATIC ASSETS or the build folder if in production...
  if(process.env.NODE_ENV ==='production'){
  	//Set static folder

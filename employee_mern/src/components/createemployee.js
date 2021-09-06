@@ -72,13 +72,14 @@ class createemployee extends Component {
       gender: this.state.gender,
       salary: this.state.salary,
     };
-
-    console.log(employee);
+        console.log(employee);
     axios
       .post("http://localhost:5000/employees/add", employee)
       .then((res) => console.log(res.data));
         
       window.location = "/";
+      alert('Employee Added!');
+
   }
 
 
@@ -122,7 +123,8 @@ class createemployee extends Component {
           
             <Button>Submit</Button>       
           </Form>
-          <MyHeading>Addis Software Test Project</MyHeading>
+          <MyHeading>Addis Software Test Project<br/>
+          Developed by Henok Bezawork </MyHeading>
       </MainContent>
     );
   }

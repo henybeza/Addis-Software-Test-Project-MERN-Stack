@@ -46,7 +46,7 @@ componentDidMount(){
 }
 
 deleteEmployee(id){
-  axios.delete('http://localhost:5000/employees/+id')
+  axios.delete('http://localhost:5000/employees/'+id)
   .then(res => console.log(res.data));
 
   this.setState({
@@ -85,7 +85,9 @@ employeeList(){
                     </Table>
                     
               </div>  
-                <MyHeading>Addis Software Test Project</MyHeading>
+                <MyHeading>Addis Software Test Project
+                <br/>
+              Developed by Henok Bezawork </MyHeading>
     
             </MainContent>
         )
