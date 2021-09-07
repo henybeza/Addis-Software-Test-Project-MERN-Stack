@@ -76,10 +76,10 @@ componentDidMount() {
     axios
       .post('http://localhost:5000/employees/update/'+ this.props.match.params.id, employee)
       .then(res => console.log(res.data));
-        
-      window.location = "/";
-       alert('Employee Updated');
+           alert('Employee Updated');
 
+      window.location = "/";
+    
   }
 
 

@@ -76,9 +76,9 @@ class createemployee extends Component {
     axios
       .post("http://localhost:5000/employees/add", employee)
       .then((res) => console.log(res.data));
-        
+        alert('Employee Added!'); 
       window.location = "/";
-      alert('Employee Added!');
+     
 
   }
 
