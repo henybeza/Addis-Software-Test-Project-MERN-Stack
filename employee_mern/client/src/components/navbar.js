@@ -87,8 +87,8 @@ const Navbar = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
      
-      <MenuLink ><Link to="/" >LIST OF EMPLOYEES</Link></MenuLink>
-        <MenuLink ><Link to="/create" >CREATE EMPLOYEES  </Link></MenuLink>
+      <MenuLink ><Link to="/" >Read</Link></MenuLink>
+        <MenuLink ><Link to="/create" >Create</Link></MenuLink>
         
       
       </Menu>
