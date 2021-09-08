@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "heroku-postbuild":"NODE_CONFIG_PRODUCTION=false npl install --prefix client"
+    "heroku-postbuild":"NODE_CONFIG_PRODUCTION=false npm install --prefix client"
   },
   "author": "Henok Bezawork",
   "license": "ISC"
