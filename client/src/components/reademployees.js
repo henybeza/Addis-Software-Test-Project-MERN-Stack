@@ -15,7 +15,7 @@ const Employee = props =>
 
                 <td>
                   <Link to={"/update/"+ props.employee._id}>Update</Link> | 
-               <Button onClick={() => {props.deleteEmployee(props.employee._id)}}>Delete</Button>
+                  <Button onClick={() => {props.deleteEmployee(props.employee._id)}}>Delete</Button>
                 </td>
 
             </Tablecontent>          )

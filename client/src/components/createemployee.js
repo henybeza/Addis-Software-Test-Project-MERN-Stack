@@ -73,6 +73,7 @@ class createemployee extends Component {
       salary: this.state.salary,
     };
         console.log(employee);
+        //Time to dispatch action to the store
     axios
       .post("http://localhost:5000/employees/add", employee)
       .then((res) => console.log(res.data));
